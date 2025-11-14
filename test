@@ -1,0 +1,292 @@
+/* General Reset and Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f9f9fb;
+  color: #232323;
+  line-height: 1.6;
+}
+
+/* 1. Sticky Navigation */
+#main-header {
+  position: sticky;
+  top: 0;
+  background: #2a2950;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(44,34,85,0.10);
+}
+
+nav {
+  padding: 0.5rem 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links li a:hover {
+  color: #eba91d;
+}
+
+/* Hero Section with Animation (2. CSS Animation) */
+#hero {
+  background: linear-gradient(135deg, #c1ddf2 0%, #f2e3e3 100%);
+  text-align: center;
+  padding: 3rem 1rem 2rem 1rem;
+}
+
+#hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  animation: popfade 1s both;
+}
+
+@keyframes popfade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.tagline {
+  font-size: 1.15rem;
+  color: #664799;
+}
+
+.register-btn {
+  background: #eba91d;
+  color: #2a2950;
+  border: none;
+  padding: 0.7em 2.5em;
+  margin-top: 1.7em;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(44,34,85,0.07);
+  transition: background 0.2s;
+}
+
+.register-btn:hover {
+  background: #ffd86d;
+}
+
+
+/* 3. Addresses - Italic & Centered */
+.food-item p:nth-of-type(1),
+.info-card p {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+
+
+/* Featured Events */
+.event-list {
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.event-list li {
+  margin-bottom: 2em;
+  background: #fff;
+  border-radius: 9px;
+  box-shadow: 0 3px 18px rgba(44,34,85,0.06);
+  padding: 1.2em 1.4em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 4. Using Images via Pseudo-Elements Example
+   [Assume images: 'hackathon.png', 'aiart.png', 'robotics.png', 'futuretalks.png'
+    placed in /images/ directory. Attach to event titles using ::before.]
+   You can replace URLs with your actual image paths. */
+.event-list li:nth-child(1) h3::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background: url('images/hackathon.png') no-repeat center/contain;
+}
+.event-list li:nth-child(2) h3::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background: url('images/aiart.png') no-repeat center/contain;
+}
+.event-list li:nth-child(3) h3::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background: url('images/robotics.png') no-repeat center/contain;
+}
+.event-list li:nth-child(4) h3::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background: url('images/futuretalks.png') no-repeat center/contain;
+}
+/* Example for adding images to organizers (replace with real image paths) */
+.organizer-card#organizer1 h3::before {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  background: url('images/anand.png') no-repeat center/contain;
+}
+.organizer-card#organizer2 h3::before {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  background: url('images/dhoni.png') no-repeat center/contain;
+}
+.organizer-card#organizer3 h3::before {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  background: url('images/taylor.png') no-repeat center/contain;
+}
+
+/* If you have food icons, add them similarly to .food-item h3::before */
+
+
+/* 5. .team Container with Horizontal Scroll */
+.team {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2em;
+  overflow-x: auto;
+  padding: 1em 0;
+  scroll-behavior: smooth;
+}
+.organizer-card {
+  min-width: 250px;
+  flex: 0 0 auto;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(44,34,85,0.10);
+  border-radius: 10px;
+  padding: 1em 1.2em;
+  margin-bottom: 0.5em;
+}
+.organizer-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  font-size: 1.2em;
+}
+
+/* Info Grid for About Section */
+.info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 2em;
+  justify-content: center;
+}
+
+.info-card {
+  background: #fff;
+  padding: 1.1em 2em;
+  border-radius: 9px;
+  box-shadow: 0 2px 12px rgba(44,34,85,0.05);
+  min-width: 200px;
+  text-align: center;
+}
+
+/* 6. Responsive Design */
+@media (max-width: 900px) {
+  .info-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+  .event-list li {
+    padding: 1em 0.7em;
+  }
+  .team {
+    gap: 0.7em;
+  }
+}
+@media (max-width: 600px) {
+  #main-header nav {
+    padding: 0.5rem;
+  }
+  .nav-links {
+    gap: 1rem;
+    font-size: 1em;
+  }
+  #hero {
+    padding: 2rem 0.4rem 1rem 0.4rem;
+  }
+  h1#logo {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 1em 0 0.3em 0;
+  }
+  .info-grid, .team {
+    flex-direction: column;
+    gap: 0.4em;
+  }
+  .event-list li {
+    margin-bottom: 1em;
+  }
+  .organizer-card {
+    min-width: 85vw;
+  }
+}
+
+/* Footer */
+footer {
+  background: #2a2950;
+  color: #fff;
+  text-align: center;
+  padding: 1.3em 0 0.7em 0;
+  margin-top: 2em;
+}
+footer a {
+  color: #eba91d;
+  margin: 0 0.5em;
+}
+
+/* Helper styles */
+h1#logo {
+  text-align: center;
+  color: #2a2950;
+  margin-top: 1.5em;
+  margin-bottom: 0.2em;
+}
